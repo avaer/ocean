@@ -1,11 +1,12 @@
 {
-  "name": "ocean",
-  "description": "An ocean wave effect at the world origin.",
+  "name": "chest",
   "version": "0.0.1",
+  "description": "Teasure chest to hold assets.",
   "client": "client.js",
-  "server": "server.js",
   "builds": {
     "worker": "worker.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "isosurface": "^1.0.0"
+  }
 }
