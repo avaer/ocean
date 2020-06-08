@@ -282,25 +282,27 @@ function animate() {
 }
 renderer.setAnimationLoop(animate);
 
-/* let currentSession = null;
-function onSessionStarted(session) {
-  session.addEventListener('end', onSessionEnded);
+navigator.xr.addEventListener('sessiongranted', e => {
+  let currentSession = null;
+  function onSessionStarted(session) {
+    session.addEventListener('end', onSessionEnded);
 
-  renderer.xr.setSession(session);
+    renderer.xr.setSession(session);
 
-  currentSession = session;
-}
-function onSessionEnded() {
-  currentSession.removeEventListener('end', onSessionEnded);
+    currentSession = session;
+  }
+  function onSessionEnded() {
+    currentSession.removeEventListener('end', onSessionEnded);
 
-  currentSession = null;
-}
-navigator.xr && navigator.xr.requestSession('immersive-vr', {
-  optionalFeatures: [
-    'local-floor',
-    'bounded-floor',
-  ],
-}).then(onSessionStarted); */
+    currentSession = null;
+  }
+  navigator.xr && navigator.xr.requestSession('immersive-vr', {
+    optionalFeatures: [
+      'local-floor',
+      'bounded-floor',
+    ],
+  }).then(onSessionStarted);
+});
 
 })();
 
