@@ -85,13 +85,13 @@ document.body.appendChild(renderer.domElement);
 renderer.domElement.style.backgroundColor = '#000';
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(0, 100, 64);
+// camera.position.set(0, 100, 64);
 
 const orbitControls = new OrbitControls(camera, renderer.domElement);
 orbitControls.screenSpacePanning = true;
 orbitControls.enableMiddleZoom = false;
 // orbitControls.update();
-orbitControls.target.set(0, 64, 0);
+// orbitControls.target.set(0, 64, 0);
 
 const SCALE = 8;
 const UV_SCALE = 2;
@@ -121,7 +121,7 @@ const hiGeometry = new THREE.PlaneBufferGeometry(NUM_CELLS, NUM_CELLS, NUM_CELLS
     new THREE.Vector3(1, 0, 0),
     -Math.PI/2
   )))
-  .applyMatrix4(localMatrix.makeTranslation(NUM_CELLS/2, 64, NUM_CELLS/2));
+  .applyMatrix4(localMatrix.makeTranslation(NUM_CELLS/2, 0, NUM_CELLS/2));
 
 const oceanChunkMeshes = {};
 
@@ -252,7 +252,7 @@ const oceanMaterial = new THREE.ShaderMaterial({
   uniforms: uniforms,
   vertexShader: OCEAN_SHADER.vertexShader,
   fragmentShader: OCEAN_SHADER.fragmentShader,
-  // transparent: true,
+  transparent: true,
 });
 
 const oceanObject = (() => {
@@ -283,6 +283,7 @@ function animate() {
 renderer.setAnimationLoop(animate);
 
 navigator.xr.addEventListener('sessiongranted', e => {
+  console.log('session granted', e);
   let currentSession = null;
   function onSessionStarted(session) {
     session.addEventListener('end', onSessionEnded);
