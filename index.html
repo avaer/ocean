@@ -276,7 +276,7 @@ scene.add(oceanObject);
 function animate() {
   orbitControls.update();
   
-  oceanMaterial.uniforms.worldTime.value = (Date.now() % (10*1000));
+  oceanMaterial.uniforms.worldTime.value = (Date.now() % (60*1000));
 
   renderer.render(scene, camera);
 }
