@@ -2,9 +2,8 @@
   "name": "chest",
   "version": "0.0.1",
   "description": "Teasure chest to hold assets.",
-  "client": "client.js",
-  "builds": {
-    "worker": "worker.js"
+  "scripts": {
+    "start": "node index.js"
   },
   "dependencies": {
     "isosurface": "^1.0.0"
