@@ -228,7 +228,7 @@ const OCEAN_SHADER = {
     "  float mixFactor = fract(animationFactor / 16.0) * 16.0;",
     // "  vec4 t = mix(texture2D( map, vUv * vec2(1.0, 1.0 - frame1) ), texture2D( map, vUv * vec2(1.0, 1.0 - frame2) ), mixFactor);",
     "  vec4 t = texture2D( map, vUv );",
-    `  vec4 diffuseColor = vec4(t.rgb, 0.3);`,
+    `  vec4 diffuseColor = vec4(t.rgb, 0.5);`,
     // "  float tV = (t.r + t.g + t.b) / 3.0;",
     // `  vec4 diffuseColor = vec4(vec3(${new THREE.Color(0x9fa8da).toArray().map(n => n.toFixed(8)).join(', ')}) * tV, 0.5);`,
     // "  float fogFactor = whiteCompliment( exp2( - fogDensity * fogDensity * fogDepth * fogDepth * LOG2 ) );",
